@@ -2,9 +2,27 @@
 #
 # Script: instance_status.sh
 #
-# Description: Start, stop, or check-status of an AWS EC2 instance
+# Description: Use aws-cli to start, stop, or check-status of an AWS EC2 instance
 #
 # Author: Bill Fanselow 2020-06-05
+#
+# Step required for installing and configureing aws cli:
+#
+# 1) Setup vitualenv
+# $ virtualenv -p python3.6 venv
+# $ . venv/bin/activate
+# $ pip install awscli
+#
+# 2) Create an IAM user on AWS UI
+# 3) Create User key for this user; copy/download key info
+# 4) Verify the name of your "region"
+#
+# 5) Configure aws cli for the user using key info and region:
+# $ aws configure
+#  AWS Access Key ID [None]: ****************
+#  AWS Secret Access Key [None]: **************
+#  Default region name [None]: us-east-2
+#  Default output format [None]: json
 #
 #--------------------------------------------------------------------------------------------------
 
