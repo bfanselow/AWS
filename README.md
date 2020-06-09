@@ -6,10 +6,9 @@ Miscellaneous automation utilities for managing AWS resources
 #### Accounts, groups, users, permissions, policies.
 
 * **Accounts**: A formal contract with AWS that is associated with all of the following entities:
-  - An "owner" email-address and password
-  - The control of all resources created 
-  - Payment for the AWS activity related to those resources
-
+  - An "owner" email-address and password.
+  - The control of all resources created. 
+  - Payment for the AWS activity related to those resources.   
 The AWS account has permission to do anything and everything with all account resources. This is **NOT** the same as a *User*.
 ---
 
