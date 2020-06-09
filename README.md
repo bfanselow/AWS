@@ -13,8 +13,8 @@ The AWS account has permission to do anything and everything with all account re
 ---
 
   * **Users**: Each account can have multiple **users** associated with it. Each user is associates with a single *account*. Users have a set of permissions and policies that determine what AWS resources they can access. Each user has an access key id and secret access key for user identification. When an AWS account is first created, a **root** users is automatically created with complete access to all AWS services and resources in the account. This user is accessed by signing in with the email address and password used to create the account. It best practice to to create *IAM users* for handling the everyday administrative/automation tasks, rather than using the *root* user. The root user should only be used to create the initial *IAM user* and a few other non-standard tasks such as changing account seetings or closing the account. . IAM . Typical *IAM Users* include:
-  - "Administrator" Users: typically for creation of additional IAM users, groups, permissions and policies.
-  - Other Service/Role Users: users specific to certain roles or resources, for example "NetworkAdmin", "StorageAdmin"
+    - "Administrator" Users: typically for creation of additional IAM users, groups, permissions and policies.
+    - Other Service/Role Users: users specific to certain roles or resources, for example "NetworkAdmin", "StorageAdmin"
 
 #### List Users
 ```
