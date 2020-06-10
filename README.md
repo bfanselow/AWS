@@ -2,7 +2,7 @@
 Miscellaneous automation utilities for managing AWS resources
 
 ---
-### IAM
+### IAM (Identity and Access Management)
 #### Accounts, groups, users, permissions, policies.
 
 * **Accounts**: A formal contract with AWS that is associated with all of the following entities:
@@ -47,3 +47,18 @@ While managed policies are a good starting point, using managed policies can als
 ```
 aws iam list-policies --no-only-attached
 ```
+---
+
+### Credentials 
+AWS supports different types of Security credentials depending on how you are accessing AWS resources:
+  * Email and password (root) - for **root** user logging into AWS Management Console.
+  * Email and password (IAM user) - for IAM user logging into AWS Management Console, of Support Center.
+  * Multi-factor authentication (MFA): typically used for *root* and other high-priveleged IAM users.
+  * Access keys (access key ID and secret access key): Used for access with:
+      - AWS-cli: read directly by the AWS SDK
+      - AWS api's: Access key used to created a request *signature* which is passed in the the HTTP Authorization header or request query sting.
+  * Temporary access keys: provide trusted users with temporary security credentials using AWS Security-Token-Service (STS). Similar to regular access-keys but temporary).
+  * Key pairs (public/private): Used for ssh/scp and signed URL's for private content. Key pairs are created outside of any AWS framework and are uploaded to a user's profile.
+
+#### Access-key storage
+Access-keys are stored in ~/.aws/credentails file for the account using the SDK **aws** executable or making an API call.  Credentials consist of an pairs of *access-key-id* and *access-secret* identified with an access-profile name which serves as an alias for the set of credentials. You can name the alias anything you like. For example you might have an IAM user named "bfanse" in both your dev and prod AWS accounts and create two profiles: "bfanse-dev" and "bfanse-prod". There are Access Keys that are not associated with any IAM Users, such as the "default" profile. An IAM User can have multiple Access Keys active at the same time. An IAM User can also generate any number of new, temporary Access Keys as well.
