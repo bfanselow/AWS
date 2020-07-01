@@ -53,7 +53,13 @@ attributes = ['name', 'type', 'state', 'private_ip', 'public_ip', 'launch_time']
 
 #-------------------------------------------------------------------------------------------
 def get_instance_data(ec2, state):
-
+    """Retrieve instance data for all instances using optional state Filters. 
+       Default is no state filters.
+       Args:
+        * (obj) ec2 boto3.resource
+        * (str) state 
+       Returns: (dict) instance data
+    """
     filters = []
     if state:
         state_filter = { 'Name':'instance-state-name', 'Values': [state]}
@@ -79,7 +85,7 @@ def get_instance_data(ec2, state):
 
 #-------------------------------------------------------------------------------------------
 def parse_input_args():
-    # Create the parser with a description of what the script does, optional prog-name, and optional usage
+    """ Create an arg-parser, parse and returns args object"""
     parser = argparse.ArgumentParser( prog=myname,
                                       usage='%(prog)s [options] <path>',
                                       description='Retrieve information on EC2 instances'
