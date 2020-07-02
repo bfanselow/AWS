@@ -2,14 +2,14 @@
 #
 # Script: pushfile.sh
 #
-# Description: Simple wrapper for scp a file to AWS instance
+# Description: Quick-n-dirty simple bash wrapper around aws cli for scp a file to AWS instance
 #
 # Author: Bill Fanselow 2020-06-05
 #
 #-----------------------------------------------------------------
 
 user='ec2-user'
-keypath='/home/wfanselow/.ssh/aws_admin.id_rsa.pem'
+keypath='__path_to_pem_file__'
 
 file=$1
 
