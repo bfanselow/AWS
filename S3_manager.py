@@ -81,7 +81,7 @@ class MethodDecorators(object):
 
 #------------------------------------------------------------------------------
 class AWSResource():
-    """ Parent class for generic resource management """
+    """ Parent class for generic S3 resource management """
 
     def __init__(self, d_init_args=None):
 
@@ -100,8 +100,9 @@ class AWSResource():
 
 
     def gen_uniq_name(self, prefix, char_limit=32):
-        """ Generate a name by concatenating passed prefix with semi-random suffix. Due
-         to AWS-S3 constraints, lowercase letters are allowed so we force lc-translation.
+        """ Generate a name by concatenating passed prefix with semi-random suffix. 
+        AWS-S3 constraints mandate only lowercase letters are allowed so we force 
+        lc-translation.
          Args:
           * (str) prefix
           * (int) OPTIONAL character limit > 2
@@ -239,7 +240,7 @@ class S3Bucket(AWSResource):
 
     def delete_all(self, verify=1):
         """ Delete all buckets after removing all objects. BE CAREFUL WITH THIS!!!
-         Default access to this method requires user-verification.
+         Default access to this method involves user-verification.
         """
         resp = None
         bnames = self.get_all_names()
@@ -304,6 +305,9 @@ class S3Bucket(AWSResource):
             raise
 
         self.dprint(1, "RESP-download_file(): %s" % resp)
+        if not os.path.exists(local_dest_path):
+            print("ERROR - File download failed - local file not found: %s" % (dest_path))
+            
         return resp
 
 
@@ -517,9 +521,6 @@ if __name__ == '__main__':
     resp = s3bkt.pull_file(bname2, filename, dest_path)
     if resp:
         print(resp)
-    if not os.path.exists(dest_path):
-        print("File download failed - local file not found: %s" % (dest_path))
-        s3bkt.delete_all(verify=0)
     print("-"*40)
     time.sleep(3)
 
@@ -531,7 +532,12 @@ if __name__ == '__main__':
     time.sleep(3)
 
     # Delete bucket-contents and Bucket for both
-    s3bkt.delete_all(verify=0)
+    resp = s3bkt.delete_bucket(bname1)
+    if resp:
+        print(resp)
+    resp = s3bkt.delete_bucket(bname2)
+    if resp:
+        print(resp)
     print("-"*40)
     time.sleep(3)
 
