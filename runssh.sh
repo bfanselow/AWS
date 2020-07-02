@@ -2,12 +2,14 @@
 #
 # Script: runssh.sh
 #
-# Description: Wrapper for ssh into AWS instance
+# Description: Quick-n-dirty bash wrapper for ssh into AWS instance
 #
 # Author: Bill Fanselow 2020-06-05
 #
 #--------------------------------------------------------------------------------------------------
-
+user='ec2-user'
+region='us-east-2'
+keypath='__path_to_pem_file__'
 
 state=`aws ec2 describe-instances --query "Reservations[*].Instances[*].State.Name" --output=text`
 if [ "X${state}" = "Xstopped" ]; then
@@ -25,11 +27,6 @@ if [ "X${pubip}" = "X" ]; then
   echo ""
   exit 1
 fi
-
-user='ec2-user'
-
-region='us-east-2'
-keypath='/home/wfanselow/.ssh/aws_admin.id_rsa.pem'
 
 ipstr="${pubip//./-}"
 host="ec2-${ipstr}.${region}.compute.amazonaws.com"
