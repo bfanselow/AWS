@@ -35,3 +35,13 @@ Google Cloud Platform also uses the term IAM for their user permissions. The gen
  * Cloud Identity domain – all Google accounts in a non-G-Suite organization
  
 Roles in Google Cloud IAM are a collection of permissions. There are some primitive roles (Owner, Editor, and Viewer), some predefined roles, and the ability to create custom roles with specific permissions through an IAM policy.
+---
+
+## SDK (Python)
+
+| Provider | libs               | Installation     |
+|----------|--------------------|------------------|
+| AWS      | boto3              | pip              |
+| GCP      | ??                 | pip              |
+| Azure    | azure-mgmt-storage | pip              |
+|          | azure-storage-blob |                  |
