@@ -1,7 +1,7 @@
 ## Account management
 
 | Provider | User/role management| Entities                       |
-|----------|:-------------------:|-------------------------------:|
+|----------|:-------------------:|--------------------------------|
 | AWS      | IAM                 | users,roles                    |
 | GCP      | RBAC                | users,groups,service-principal |
 | Azure    | IAM                 | users,groups,service-accounts  |
