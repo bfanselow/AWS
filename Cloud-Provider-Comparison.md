@@ -1,14 +1,14 @@
 ## Account management
 
-| Provider | User/role management| Entities                       |
-|----------|:-------------------:|--------------------------------|
-| AWS      | IAM                 | users,roles                    |
-| GCP      | RBAC                | users,groups,service-principal |
-| Azure    | IAM                 | users,groups,service-accounts  |
+| Provider | User/role management| Entities                         |
+|----------|:-------------------:|----------------------------------|
+| AWS      | IAM                 | users, roles                     |
+| GCP      | RBAC                | users, groups, service-principal |
+| Azure    | IAM                 | users, groups, service-accounts  |
      
 
 
-#### AWS IAM Users and Roles
+#### AWS IAM
 AWS captures all user and role management within IAM, which stands for “Identity and Access Management”. Through IAM, you can manage your users and roles, along with all the permissions and visibility those users and service accounts have within your AWS account. There are a couple different IAM entities:
 
  * Users – used when an actual human will be logging in
