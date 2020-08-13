@@ -4,6 +4,13 @@
   Script: instance_status.py
   Description: Start, stop, or check-status of an AWS EC2 instance
   Author: Bill Fanselow 2020-06-05
+  
+  
+ NOTICE: Authentication tokens are time stamped. If your local computor's datetime is off (by a few minutes or more)
+ relative to AWS servers your credentials will be invalid and you will get the following error:
+  "AWS was not able to validate the provided credentials"
+ Solution: Set your time with NOT or the following command:
+   $ sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
 
 """
 
