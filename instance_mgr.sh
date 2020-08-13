@@ -24,6 +24,13 @@
 #  Default region name [None]: us-east-2
 #  Default output format [None]: json
 #
+#
+# NOTICE: Authentication tokens are time stamped. If your local computor's datetime is off (by a few minutes or more)
+# relative to AWS servers your credentials will be invalid and you will get the following error:
+#  "AWS was not able to validate the provided credentials"
+# Solution: Set your time with NOT or the following command:
+#   $ sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+#
 #--------------------------------------------------------------------------------------------------
 
 MYNAME=instance_status.sh
